@@ -1,13 +1,12 @@
-package jpabook.jpashop.domain;
+package jpabook.jpashop.domain.item;
 
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "dtype")
 @Entity
 @Getter @Setter
 public abstract class Item {

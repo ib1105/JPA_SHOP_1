@@ -25,10 +25,13 @@ public class Order {
     @OneToMany(mappedBy = "order_id")
     private List<OrderItem> orderItems = new ArrayList<>();
 
+    @OneToOne
+    @JoinColumn(name = "delibery_id")
     private Delevery delivery;
 
     private LocalDateTime orderDate;
 
+    @Enumerated(EnumType.STRING)
     private OrderStatus status;
 
 }
