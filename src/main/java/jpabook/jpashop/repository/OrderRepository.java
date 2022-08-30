@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.util.StringUtils;
 
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 import javax.persistence.criteria.*;
 import java.util.ArrayList;
@@ -17,9 +18,11 @@ import java.util.List;
 @RequiredArgsConstructor
 public class OrderRepository {
 
-    private final EntityManager em;
+    @PersistenceContext
+    EntityManager em;
 
     public void save(Order order) {
+        System.out.println("======================================");
         em.persist(order);
     }
 
