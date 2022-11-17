@@ -34,14 +34,19 @@ public class OrderService {
         delivery.setAddress(member.getAddress());
         delivery.setStatus(DeliveryStatus.READY);
 
+
         //주문상품 생성
         OrderItem orderItem = OrderItem.createOrderItem(item, item.getPrice(), count);
+
 
         //주문생성
         Order order = Order.createOrder(member, delivery, orderItem);
 
+
+
         //주문저장
         orderRepository.save(order);
+
 
 
         return order.getId();
